@@ -1,6 +1,6 @@
 <template>
   <Content :style="{padding: '0 16px 16px'}">
-    <Card style="height: 698px">
+    <Card>
       <template v-if="myStore === 'myStudent' || myStore === 'myCompany'">
         <ScForm></ScForm>
       </template>

@@ -22,7 +22,7 @@
     </Space>
   </div>
   <span>
-     <Table highlight-row border :columns="columns" :data="data" style="margin-top: 1%"></Table>
+     <Table highlight-row border :columns="decideMain" :data="data" style="margin-top: 1%"></Table>
       <Page :total="100" show-total style="margin-top: 2%;margin-right:10%;float: right"/>
   </span>
 
@@ -39,6 +39,13 @@ export default {
     myContextType(){
       return store.getters["school/getMyContextType"]
     },
+    decideMain(){
+      if(this.myContextType === 'myStudent'){
+        return this.studentCol
+      }else if(this.myContextType === 'myCompany'){
+        return this.companyCol
+      }
+    }
   },
   methods: {
     toLoading () {
@@ -50,16 +57,6 @@ export default {
     toLoading3 () {
       this.loading3 = true;
     },
-    decideMain(myVal){
-      if(myVal === 'myStudent'){
-        this.columns = this.studentCol
-      }else if(myVal === 'myCompany'){
-        this.columns = this.companyCol
-      }
-    }
-  },
-  beforeMount() {
-    this.decideMain(this.myContextType)
   },
   data(){
     return {

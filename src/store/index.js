@@ -28,10 +28,13 @@ const store = createStore({
                 changeMain(state,payload){
                     state.showMain = payload.myVal
                     state.myContextType = payload.myStudent
+                    console.log("已经修改为：student")
+
                 },
                 changeMainCompany(state,payload){
                     state.showMain = payload.myVal
                     state.myContextType = payload.myCompany
+                    console.log("已经修改为：company")
                 },
                 bindUserInfo(state,payload){
                     state.username = payload.username
