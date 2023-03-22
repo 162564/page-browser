@@ -4,8 +4,14 @@
       <template v-if="myStore === 'myStudent' || myStore === 'myCompany'">
         <ScForm></ScForm>
       </template>
-      <template v-else-if="myStore === 'myCompany'">
-        <h1>dadasadadsa</h1>
+      <template v-else-if="myStore === 'myReport'">
+        <ScReport></ScReport>
+      </template>
+      <template v-else-if="myStore === 'myAudit'">
+        <ScAudit></ScAudit>
+      </template>
+      <template v-else-if="myStore === 'myNotice'">
+        <ScNotice></ScNotice>
       </template>
       <template v-else>
         <h1>其他页面</h1>
@@ -18,10 +24,14 @@
 
 import store from "../../store/index.js";
 import ScForm from "./main/ScForm.vue";
+import ScReport from "./main/ScReport.vue";
+import ScAudit from "./main/ScAudit.vue";
+import ScNotice from "./main/ScNotice.vue";
+import {Card, Content} from "view-ui-plus";
 
 
 export default {
-  components: {ScForm},
+  components: {Card, Content, ScNotice, ScAudit, ScReport, ScForm},
   data(){
     return{
     }

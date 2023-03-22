@@ -40,7 +40,19 @@ const store = createStore({
                     state.username = payload.username
                     state.password = payload.password
                     state.info = payload.info
-                }
+                },
+                changeMainByMyReport(state,payload){
+                    state.myContextType = payload.myVal
+                    console.log("已经修改为：myReport")
+                },
+                changeMainByMyAudit(state,payload){
+                    state.myContextType = payload.myVal
+                    console.log("已经修改为：myAudit")
+                },
+                changeMainByMyNotice(state,payload){
+                    state.myContextType = payload.myVal
+                    console.log("已经修改为：myNotice")
+                },
             }
         },
         student: {

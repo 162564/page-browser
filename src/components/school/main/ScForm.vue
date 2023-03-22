@@ -140,7 +140,6 @@ export default {
           key: 'information'
         }
       ],
-      columns: '',
       data: [
         {
           name: 'John Brown',

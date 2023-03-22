@@ -61,8 +61,7 @@
           <Icon type="ios-podium" />
             统计
         </template>
-        <MenuItem name="3-1">学生就业报表</MenuItem>
-        <MenuItem name="3-2">企业报表</MenuItem>
+        <MenuItem name="3-1" @click="toMyReport('myReport')">学生就业信息统计</MenuItem>
       </Submenu>
 
       <Submenu name="4">
@@ -70,8 +69,8 @@
           <Icon type="ios-people" />
           管理
         </template>
-        <MenuItem name="4-1">企业招聘审核</MenuItem>
-        <MenuItem name="4-2">公告</MenuItem>
+        <MenuItem name="4-1" @click="toMyAudit('myAudit')">企业招聘审核</MenuItem>
+        <MenuItem name="4-2" @click="toMyNotice('myNotice')">公告</MenuItem>
       </Submenu>
 
     </Menu>
@@ -102,6 +101,24 @@ export default {
         type:'school/changeMainCompany',
         myVal,
         myCompany:'myCompany',
+      })
+    },
+    toMyReport(myVal){
+      store.commit({
+        type:'school/changeMainByMyReport',
+        myVal,
+      })
+    },
+    toMyAudit(myVal){
+      store.commit({
+        type:'school/changeMainByMyAudit',
+        myVal,
+      })
+    },
+    toMyNotice(myVal){
+      store.commit({
+        type:'school/changeMainByMyNotice',
+        myVal,
       })
     }
   },
