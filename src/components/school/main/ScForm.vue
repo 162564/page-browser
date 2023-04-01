@@ -31,10 +31,12 @@
 <script>
 
 import store from "../../../store/index.js";
+import {Space} from "view-ui-plus";
 
 
 export default {
   name: "ScForm",
+  components: {Space},
   computed:{
     myContextType(){
       return store.getters["school/getMyContextType"]

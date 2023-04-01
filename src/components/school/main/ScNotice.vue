@@ -1,36 +1,25 @@
 <template>
-  <Carousel autoplay loop style="height: 650px">
-    <CarouselItem>
-      <div class="demo-carousel"><img src="../../../assets/img/轮播图1.jpeg" alt=""></div>
-    </CarouselItem>
-    <CarouselItem>
-      <div class="demo-carousel"><img src="../../../assets/img/轮播图2.jpeg" alt=""></div>
-    </CarouselItem>
-    <CarouselItem>
-      <div class="demo-carousel"><img src="../../../assets/img/轮播图3.jpeg" alt=""></div>
-    </CarouselItem>
-    <CarouselItem>
-      <div class="demo-carousel"><img src="../../../assets/img/轮播图4.jpeg" alt=""></div>
-    </CarouselItem>
-    <CarouselItem>
-      <div class="demo-carousel"><img src="../../../assets/img/轮播图5.jpeg" alt=""></div>
-    </CarouselItem>
-  </Carousel>
+  <h1>控制广告显示</h1>
+  <Switch v-model="value" @on-change="change" />
 </template>
 
 <script>
 
-import {Carousel, CarouselItem} from "view-ui-plus";
 
 export default {
   name: "ScNotice",
-  components: {CarouselItem, Carousel},
-
+  data () {
+    return {
+      value: false
+    }
+  },
+  methods: {
+    change (status) {
+      this.$Message.info('开关状态：' + status);
+    }
+  }
 }
 </script>
 
 <style scoped>
-img{
-
-}
 </style>

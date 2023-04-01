@@ -10,23 +10,24 @@
 
 <template>
   <div class="layout">
-<!--导航区-->
-    <router-view></router-view>
+    <!--导航区-->
+    <StGuide></StGuide>
     <Layout :style="{marginLeft: '200px'}">
-<!--头部区域-->
-      <ScHeader></ScHeader>
-<!--内容展示区-->
-      <ScMain></ScMain>
+      <!--头部区域-->
+      <StHeader :style="{height:'20%'}"></StHeader>
+      <!--内容展示区-->
+      <StMain></StMain>
     </Layout>
   </div>
 </template>
 <script>
-import ScGuide from "../components/school/ScGuide.vue";
-import ScHeader from "../components/school/ScHeader.vue";
-import ScMain from "../components/school/ScMain.vue";
+import StGuide from "../components/student/StGuide.vue";
+import StMain from "../components/student/StMain.vue";
+import StHeader from "../components/student/StHeader.vue";
+import {Layout} from "view-ui-plus";
 
 export default {
-  components: {ScMain, ScHeader, ScGuide}
-
+  name:'studentPage',
+  components: {Layout, StHeader, StMain, StGuide}
 }
 </script>

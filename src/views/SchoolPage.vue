@@ -24,8 +24,9 @@
 import ScGuide from "../components/school/ScGuide.vue";
 import ScHeader from "../components/school/ScHeader.vue";
 import ScMain from "../components/school/ScMain.vue";
+import {Layout} from "view-ui-plus";
 
 export default {
-  components: {ScMain, ScHeader, ScGuide}
+  components: {Layout, ScMain, ScHeader, ScGuide}
 }
 </script>

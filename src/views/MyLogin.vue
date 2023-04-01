@@ -21,13 +21,13 @@
 
 <script>
 
-import {Radio} from "view-ui-plus";
+import {Login, Password, Radio, RadioGroup, Submit, UserName} from "view-ui-plus";
 import store from "../store/index.js";
 import axios from "axios";
 import router from "../router/index.js";
 
 export default {
-  components: {Radio},
+  components: {Password, Login, RadioGroup, Submit, UserName, Radio},
   data () {
     return {
       info:'学生',
@@ -53,12 +53,11 @@ export default {
                   console.log(error);
         }).then(function () {
           if (info === '学生'){
-
+            router.push('/studentPage')
           }else if (info === "学校"){
-
             router.push('/schoolPage')
           }else if (info === '企业'){
-
+            router.push('/companyPage')
           }
         });
       }

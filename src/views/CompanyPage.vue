@@ -10,23 +10,24 @@
 
 <template>
   <div class="layout">
-<!--导航区-->
-    <router-view></router-view>
+    <!--导航区-->
+    <CGuide></CGuide>
     <Layout :style="{marginLeft: '200px'}">
-<!--头部区域-->
-      <ScHeader></ScHeader>
-<!--内容展示区-->
-      <ScMain></ScMain>
+      <!--头部区域-->
+      <CHeader :style="{height:'20%'}"></CHeader>
+      <!--内容展示区-->
+      <CMain></CMain>
     </Layout>
   </div>
 </template>
 <script>
-import ScGuide from "../components/school/ScGuide.vue";
-import ScHeader from "../components/school/ScHeader.vue";
-import ScMain from "../components/school/ScMain.vue";
+import CGuide from "../components/company/CGuide.vue";
+import CHeader from "../components/company/CHeader.vue";
+import CMain from "../components/company/CMain.vue";
+import {Layout} from "view-ui-plus";
 
 export default {
-  components: {ScMain, ScHeader, ScGuide}
-
+  name:'companyPage',
+  components: {Layout, CMain, CHeader, CGuide}
 }
 </script>
