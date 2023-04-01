@@ -14,7 +14,7 @@
         <ScNotice></ScNotice>
       </template>
       <template v-else>
-        <h1>其他页面</h1>
+        <PubNotice></PubNotice>
       </template>
     </Card>
   </Content>
@@ -28,10 +28,11 @@ import ScReport from "./main/ScReport.vue";
 import ScAudit from "./main/ScAudit.vue";
 import ScNotice from "./main/ScNotice.vue";
 import {Card, Content} from "view-ui-plus";
+import PubNotice from "../PubNotice.vue";
 
 
 export default {
-  components: {Card, Content, ScNotice, ScAudit, ScReport, ScForm},
+  components: {PubNotice, Card, Content, ScNotice, ScAudit, ScReport, ScForm},
   data(){
     return{
     }

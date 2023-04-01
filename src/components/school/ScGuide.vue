@@ -51,9 +51,8 @@
           <Icon type="ios-keypad"></Icon>
           企业信息
         </template>
-        <MenuItem name="2-1" @click="toMyFormCompany('国企')">国企</MenuItem>
-        <MenuItem name="2-2" @click="toMyFormCompany('民企')">民企</MenuItem>
-        <MenuItem name="2-3" @click="toMyFormCompany('外企')">外企</MenuItem>
+        <MenuItem name="2-1" @click="toMyFormCompany('myCompany')">企业资料</MenuItem>
+
       </Submenu>
 
       <Submenu name="3">

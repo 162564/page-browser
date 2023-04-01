@@ -37,7 +37,6 @@ export default {
     handleSubmit (valid,{username,password}){
       let info = this.info
       let obj = {username,password,info}
-      store.commit('school/bindUserInfo',obj)
       if (valid) {
         /*根据info类型，跳转*/
         axios.get('/', {
@@ -53,10 +52,13 @@ export default {
                   console.log(error);
         }).then(function () {
           if (info === '学生'){
+            store.commit('student/bindUserInfo',obj)
             router.push('/studentPage')
           }else if (info === "学校"){
+            store.commit('school/bindUserInfo',obj)
             router.push('/schoolPage')
           }else if (info === '企业'){
+            store.commit('company/bindUserInfo',obj)
             router.push('/companyPage')
           }
         });

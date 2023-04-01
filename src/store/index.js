@@ -56,33 +56,63 @@ const store = createStore({
             }
         },
         student: {
+            namespaced:true,
             strict:true,
             state:() => ({
-
+                username: '',
+                password: '',
+                info:'',
+                showMain:'',
+                myContextType:'',
             }),
             getters:{
-
+                getShowMain(state){
+                    return state.showMain
+                },
             },
             actions:{
 
             },
             mutations: {
-
+                bindUserInfo(state,payload){
+                    state.username = payload.username
+                    state.password = payload.password
+                    state.info = payload.info
+                },
+                changeMain(state,payload){
+                    state.showMain = payload.myVal
+                    console.log('修改为'+ payload.myVal)
+                },
             }
         },
         company: {
+            namespaced:true,
             strict:true,
             state:() => ({
-
+                username: '',
+                password: '',
+                info:'',
+                showMain:'',
+                myContextType:'',
             }),
             getters:{
-
+                getShowMain(state){
+                    return state.showMain
+                }
             },
             actions:{
 
             },
             mutations: {
-
+                bindUserInfo(state,payload){
+                    state.username = payload.username
+                    state.password = payload.password
+                    state.info = payload.info
+                },
+                changeMain(state,payload){
+                    state.showMain = payload.myVal
+                    console.log('修改为'+ payload.myVal)
+                }
             }
         }
     },
