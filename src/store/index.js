@@ -63,7 +63,6 @@ const store = createStore({
                 password: '',
                 info:'',
                 showMain:'',
-                myContextType:'',
             }),
             getters:{
                 getShowMain(state){
@@ -93,7 +92,6 @@ const store = createStore({
                 password: '',
                 info:'',
                 showMain:'',
-                myContextType:'',
             }),
             getters:{
                 getShowMain(state){

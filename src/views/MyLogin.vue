@@ -7,10 +7,10 @@
         <Login @on-submit="handleSubmit">
           <UserName name="username"/>
           <Password name="password"  enter-to-submit/>
-          <RadioGroup v-model="info" size="large"  style="margin-left: 15%">
-            <Radio class="radio-size" label="学生"></Radio>
-            <Radio class="radio-size" label="学校"></Radio>
-              <Radio class="radio-size" label="企业"></Radio>
+          <RadioGroup v-model="info" size="large"  style="margin-left: 1%">
+            <Radio class="radio-size" label="student"></Radio>
+            <Radio class="radio-size" label="school"></Radio>
+            <Radio class="radio-size" label="company"></Radio>
           </RadioGroup>
           <Submit style="margin-top: 5px"/>
         </Login>
@@ -30,43 +30,53 @@ export default {
   components: {Password, Login, RadioGroup, Submit, UserName, Radio},
   data () {
     return {
-      info:'学生',
+      info:'student',
     }
   },
   methods: {
     handleSubmit (valid,{username,password}){
+      let that = this
       let info = this.info
       let obj = {username,password,info}
+      let url = 'http://localhost:8080/'+ info +'/checkInfo'
       if (valid) {
         /*根据info类型，跳转*/
-        axios.get('/', {
+        axios.get(url, {
           /*向后端服务器发送请求，携带数据*/
           params: {
-            username,password,info
+            username,password
           }
         }).then(
             function (response) {
-              console.log(response);
-            }).catch(
-                function (error) {
-                  console.log(error);
-        }).then(function () {
-          if (info === '学生'){
-            store.commit('student/bindUserInfo',obj)
-            router.push('/studentPage')
-          }else if (info === "学校"){
-            store.commit('school/bindUserInfo',obj)
-            router.push('/schoolPage')
-          }else if (info === '企业'){
-            store.commit('company/bindUserInfo',obj)
-            router.push('/companyPage')
-          }
-        });
+              if (response.data == true){
+                if (info === 'student'){
+                  store.commit('student/bindUserInfo',obj)
+                  router.push('/studentPage')
+                }else if (info === "school"){
+                  store.commit('school/bindUserInfo',obj)
+                  router.push('/schoolPage')
+                }else if (info === 'company'){
+                  store.commit('company/bindUserInfo',obj)
+                  router.push('/companyPage')
+               }
+                that.$Message.success('登入成功,正在进入首页……')
+                return;
+             }
+              that.$Message.error(response.data)
+        }).catch(
+            function (error) {
+              console.log(error);
+        })
       }
-    }
+    },
   },
   computed:{
 
+  },
+  mounted() {
+    this.$Message.config({
+      duration:1
+    })
   }
 }
 </script>
