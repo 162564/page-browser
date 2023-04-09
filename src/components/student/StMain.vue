@@ -28,11 +28,12 @@ import PubNotice from "../PubNotice.vue";
 import StResume from "./main/StResume.vue";
 import StWorkInfo from "./main/StWorkInfo.vue";
 import StCompanyInfo from "./main/StCompanyInfo.vue";
+import StInfo from "./main/StInfo.vue";
 
 
 export default {
   name:'stMain',
-  components: {StCompanyInfo, StWorkInfo, StResume, PubNotice, Card, Content},
+  components: {StInfo, StCompanyInfo, StWorkInfo, StResume, PubNotice, Card, Content},
   data(){
     return{
     }

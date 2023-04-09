@@ -75,7 +75,7 @@ export default {
   },
   mounted() {
     this.$Message.config({
-      duration:1
+      duration:1.5
     })
   }
 }
