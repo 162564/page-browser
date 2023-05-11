@@ -13,7 +13,7 @@
     </div>
     <div style="margin-top: -32px">
       <Space wrap style="margin-left: 550px;">
-        <Button type="primary" @click="applyEmployee">招聘</Button>
+        <Button type="primary" @click="applyEmployee">解雇</Button>
       </Space>
     </div>
     <span>
@@ -29,7 +29,7 @@ import axios from "axios";
 import store from "../../../store/index.js";
 
 export default {
-  name: "CApply",
+  name: "CEmployee",
   components: {Page, Space},
   data(){
     return {
@@ -121,7 +121,7 @@ export default {
       let that = this
       setTimeout(function () {
         let replace = []
-        axios.get(`http://localhost:8080/company/selectAllApply/${that.user.cid}`).then(function (response) {
+        axios.get(`http://localhost:8080/company/selectAllEmployee/${that.user.cid}`).then(function (response) {
           for (let i = 0; i < response.data.length; i++) {
             if(response.data[i+1] === undefined)break
             replace[i] = response.data[i+1]
@@ -144,9 +144,9 @@ export default {
         this.$Message.warning("请先选择！")
         return
       }
-      axios.put(`http://localhost:8080/company/applyEmployee/${that.user.cid}/${this.item.sid}`).then(function (response) {
+      axios.put(`http://localhost:8080/company/puaEmployee/${that.user.cid}/${this.item.sid}`).then(function (response) {
         if(response.data === true){
-          that.$Message.success("招聘成功！")
+          that.$Message.success("解雇成功！")
           that.sendRes()
           console.log(response)
         }else {
@@ -220,7 +220,7 @@ export default {
   mounted(){
     let that = this
     let replace = []
-    axios.get(`http://localhost:8080/company/selectAllApply/${that.user.cid}`).then(function (response) {
+    axios.get(`http://localhost:8080/company/selectAllEmployee/${that.user.cid}`).then(function (response) {
       for (let i = 0; i < response.data.length; i++) {
         if(response.data[i+1] === undefined)break
         replace[i] = response.data[i+1]
@@ -235,7 +235,7 @@ export default {
     }).catch(function (error){
       console.log(error)
     })
-    },
+  },
 }
 
 </script>

@@ -16,7 +16,6 @@ import CMain from "../components/company/CMain.vue";
 import SchoolPage from "../views/SchoolPage.vue";
 import CompanyPage from "../views/CompanyPage.vue";
 import StudentPage from "../views/StudentPage.vue";
-import ScForm from "../components/school/main/ScForm.vue";
 
 
 
@@ -41,13 +40,7 @@ const routes = [
             {
                 path: 'scMain',
                 component: ScMain,
-                children:[
-                    {
-                        path:'scForm',
-                        component: ScForm,
-                    }
-                ]
-            },
+            }
         ]
     },
     {

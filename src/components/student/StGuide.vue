@@ -8,7 +8,6 @@
         </template>
         <MenuItem name="1-1" @click="toMyMain('myInfo')">个人资料</MenuItem>
         <MenuItem name="1-2" @click="toMyMain('myResume')">简历</MenuItem>
-        <MenuItem name="1-3" @click="toMyMain('myWorkInfo')">就业信息</MenuItem>
       </Submenu>
 
       <Submenu name="2">
@@ -16,7 +15,7 @@
           <Icon type="ios-keypad"></Icon>
           企业资料
         </template>
-        <MenuItem name="2-1" @click="toMyMain('myCompanyInfo')">企业信息</MenuItem>
+        <MenuItem name="2-1" @click="toMyMain('myCompanyInfo')">招聘信息</MenuItem>
       </Submenu>
     </Menu>
   </Sider>
@@ -25,7 +24,6 @@
 <script>
 import {MenuItem, Submenu} from "view-ui-plus";
 import store from "../../store/index.js";
-import {mapActions} from "vuex";
 
 export default {
   components: {MenuItem, Submenu},

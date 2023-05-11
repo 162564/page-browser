@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import plPL from "view-ui-plus/src/locale/lang/pl-PL.js";
 
 const store = createStore({
     modules:{
@@ -11,6 +12,7 @@ const store = createStore({
                 info:'',
                 showMain:'',
                 myContextType:'',
+                user:{},
             }),
             getters:{
                 getShowMain(state){
@@ -18,6 +20,15 @@ const store = createStore({
                 },
                 getMyContextType(state){
                     return state.myContextType
+                },
+                getUser(state){
+                    return state.user
+                },
+                getUsername(state){
+                    return state.username
+                },
+                getPassword(state){
+                    return state.password
                 }
             },
             actions:{
@@ -45,14 +56,9 @@ const store = createStore({
                     state.myContextType = payload.myVal
                     console.log("已经修改为：myReport")
                 },
-                changeMainByMyAudit(state,payload){
-                    state.myContextType = payload.myVal
-                    console.log("已经修改为：myAudit")
-                },
-                changeMainByMyNotice(state,payload){
-                    state.myContextType = payload.myVal
-                    console.log("已经修改为：myNotice")
-                },
+                bindUser(state,payload){
+                    state.user = {...payload}
+                }
             }
         },
         student: {
@@ -63,39 +69,20 @@ const store = createStore({
                 password: '',
                 info:'',
                 showMain:'',
+                user:{},
             }),
             getters:{
                 getShowMain(state){
                     return state.showMain
                 },
-            },
-            actions:{
-
-            },
-            mutations: {
-                bindUserInfo(state,payload){
-                    state.username = payload.username
-                    state.password = payload.password
-                    state.info = payload.info
+                getUsername(state){
+                    return state.username
                 },
-                changeMain(state,payload){
-                    state.showMain = payload.myVal
-                    console.log('修改为'+ payload.myVal)
+                getPassword(state){
+                    return state.password
                 },
-            }
-        },
-        company: {
-            namespaced:true,
-            strict:true,
-            state:() => ({
-                username: '',
-                password: '',
-                info:'',
-                showMain:'',
-            }),
-            getters:{
-                getShowMain(state){
-                    return state.showMain
+                getUser(state){
+                    return state.user
                 }
             },
             actions:{
@@ -110,6 +97,51 @@ const store = createStore({
                 changeMain(state,payload){
                     state.showMain = payload.myVal
                     console.log('修改为'+ payload.myVal)
+                },
+                bindUser(state,payload){
+                    state.user = {...payload}
+                }
+            }
+        },
+        company: {
+            namespaced:true,
+            strict:true,
+            state:() => ({
+                username: '',
+                password: '',
+                info:'',
+                showMain:'',
+                user:{},
+            }),
+            getters:{
+                getShowMain(state){
+                    return state.showMain
+                },
+                getUsername(state){
+                    return state.username
+                },
+                getPassword(state){
+                    return state.password
+                },
+                getUser(state){
+                    return state.user
+                }
+            },
+            actions:{
+
+            },
+            mutations: {
+                bindUserInfo(state, payload) {
+                    state.username = payload.username
+                    state.password = payload.password
+                    state.info = payload.info
+                },
+                changeMain(state, payload) {
+                    state.showMain = payload.myVal
+                    console.log('修改为' + payload.myVal)
+                },
+                bindUser(state, payload) {
+                    state.user = {...payload}
                 }
             }
         }

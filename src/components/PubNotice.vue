@@ -24,7 +24,7 @@ export default {
     let num = 1001
     for (let i = 0; i < 5; i++) {
       let url = 'http://localhost:8080/getImgById/'
-      url = url + num++
+      url += num++
       axios.get(url, {
         responseType:'blob'
         /*向后端服务器发送请求，携带数据*/

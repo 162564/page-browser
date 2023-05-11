@@ -38,15 +38,10 @@ export default {
       let that = this
       let info = this.info
       let obj = {username,password,info}
-      let url = 'http://localhost:8080/'+ info +'/checkInfo'
+      let url = 'http://localhost:8080/'+ info +'/checkInfo/'+username+'/'+password
       if (valid) {
         /*根据info类型，跳转*/
-        axios.get(url, {
-          /*向后端服务器发送请求，携带数据*/
-          params: {
-            username,password
-          }
-        }).then(
+        axios.get(url).then(
             function (response) {
               if (response.data == true){
                 if (info === 'student'){
@@ -125,7 +120,6 @@ export default {
 .demo-login {
   position: absolute;
   margin-left: 30%;
-  margin-top: 8%;
   height: 20%;
   width: 40%;
 }
